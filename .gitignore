@@ -1,0 +1,48 @@
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+config.php
+config.js
+config.json
+
+# Dependencies
+node_modules/
+vendor/
+venv/
+__pycache__/
+
+# Builds & Cache
+dist/
+build/
+.next/
+.cache/
+
+# Logs & Databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# System & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# Backup folders and temp files
+*backup*
+*bak*
+*.bak
+*.broken*
+*.pre-*
+_backup_*
+.*-backup-*
+.admin-*
+.cache-*
+.full-*
+all_code.txt
+project_code.txt
+*seller-price-block-DUMP.txt

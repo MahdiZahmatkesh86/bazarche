@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>پنل مدیریت | زحمتکش مارکت</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-crop.css">
+<link rel="stylesheet" href="gallery.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b1e3a'/%3E%3C/svg%3E">
+
+
+<style id="__cat_card_v5__">
+/* ============================================================
+   Category Card v5 — دایره + عکس (کاملاً inline)
+   ============================================================ */
+#catGrid.cat-grid-admin{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+  gap: 16px !important;
+}
+#catGrid .cat-card-admin{
+  background: #fff !important;
+  border: 1px solid #e6e8ec !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all .25s ease !important;
+}
+#catGrid .cat-card-admin:hover{
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,.1) !important;
+  transform: translateY(-3px) !important;
+  border-color: #d4d8de !important;
+}
+
+/* ⭐ دایره — قلب موضوع ⭐ */
+#catGrid .cat-card-thumb{
+  width: 96px !important;
+  height: 96px !important;
+  min-width: 96px !important;
+  min-height: 96px !important;
+  max-width: 96px !important;
+  max-height: 96px !important;
+
+  border-radius: 50% !important;
+  aspect-ratio: 1 / 1 !important;
+
+  margin: 20px auto 14px auto !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+
+  border: 3px solid #fff !important;
+  box-shadow:
+    0 0 0 2px rgba(217, 42, 63, 0.22),
+    0 6px 16px -6px rgba(0, 0, 0, 0.18) !important;
+
+  background-color: #fafbfc !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-clip: padding-box !important;
+
+  padding: 0 !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  transition: transform .25s ease !important;
+}
+#catGrid .cat-card-admin:hover .cat-card-thumb{
+  transform: scale(1.06) !important;
+}
+
+/* آیکون SVG داخل دایره */
+#catGrid .cat-card-thumb svg{
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+}
+
+/* info */
+#catGrid .cat-card-info{
+  padding: 4px 14px 14px 14px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+#catGrid .cat-card-info b{
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+#catGrid .cat-card-info span{
+  font-size: 11.5px !important;
+  color: #64748b !important;
+}
+
+/* actions */
+#catGrid .cat-card-actions{
+  display: flex !important;
+  gap: 4px !important;
+  padding: 10px 12px !important;
+  background: #fafbfc !important;
+  border-top: 1px solid #e6e8ec !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 640px){
+  #catGrid.cat-grid-admin{ grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  #catGrid .cat-card-thumb{
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 72px !important;
+    min-height: 72px !important;
+    max-width: 72px !important;
+    max-height: 72px !important;
+    margin: 14px auto 10px auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="adm-boot" id="bootLoader">
+  <div class="adm-boot-logo">
+    <svg width="56" height="56" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M9.5 12.5h13l-1.2 11H10.7z" fill="#fff"/><path d="M12.8 12.5c0-4.4 6.4-4.4 6.4 0" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+  <div class="adm-boot-spinner"></div>
+  <p id="bootMsg">در حال بارگذاری...</p>
+</div>
+
+<div class="adm-app" id="app" hidden>
+  <aside class="adm-side" id="sidebar">
+    <div class="adm-brand">
+      <div class="adm-brand-logo">
+        <svg width="34" height="34" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M9.5 12.5h13l-1.2 11H10.7z" fill="#fff"/><path d="M12.8 12.5c0-4.4 6.4-4.4 6.4 0" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="adm-brand-txt"><b>زحمتکش مارکت</b><span>پنل مدیریت</span></div>
+    </div>
+    <nav class="adm-nav" id="nav"></nav>
+    <div class="adm-side-foot">
+      <a href="index.html" target="_blank" rel="noopener" class="adm-view-site" id="viewSiteBtn"><span data-ic="external"></span><span>مشاهده سایت</span></a>
+    </div>
+  </aside>
+  <div class="adm-side-scrim" id="sideScrim" hidden></div>
+  <div class="adm-main">
+    <header class="adm-top">
+      <button class="adm-iconbtn adm-menubtn" id="menuBtn" type="button" aria-label="منو"><span data-ic="menu"></span></button>
+      <div class="adm-crumb"><h1 id="pageTitle">داشبورد</h1><span class="adm-crumb-sub" id="pageSub"></span></div>
+      <div class="adm-top-actions">
+        <button class="adm-iconbtn adm-themebtn" id="themeBtn" type="button" aria-label="تغییر تم"><span class="adm-ic-sun" data-ic="sun"></span><span class="adm-ic-moon" data-ic="moon"></span></button>
+        <button class="adm-iconbtn" id="refreshBtn" type="button" aria-label="به‌روزرسانی"><span data-ic="refresh"></span></button>
+        <div class="adm-userchip" id="userChip" tabindex="0" role="button">
+          <div class="adm-avatar" id="userAvatar">م</div>
+          <div class="adm-user-meta"><b id="userName">—</b><span id="userEmail">—</span></div>
+          <span class="adm-user-chip-arrow" data-ic="chevdown"></span>
+          <div class="adm-usermenu" id="userMenu" hidden>
+            <button class="adm-usermenu-it" data-user-menu="account"><span data-ic="user"></span>حساب من</button>
+            <button class="adm-usermenu-it" data-user-menu="site"><span data-ic="external"></span>مشاهده سایت</button>
+            <div class="adm-usermenu-sep"></div>
+            <button class="adm-usermenu-it is-danger" data-user-menu="logout"><span data-ic="logout"></span>خروج از حساب</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="adm-content" id="content" tabindex="-1"></main>
+  </div>
+</div>
+
+<div class="adm-toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<div class="adm-modal" id="modal" hidden>
+  <div class="adm-modal-scrim" data-close></div>
+  <div class="adm-modal-box" id="modalBox"></div>
+</div>
+
+<div class="adm-modal adm-confirm" id="confirmModal" hidden>
+  <div class="adm-modal-scrim" data-confirm-close></div>
+  <div class="adm-modal-box adm-confirm-box" id="confirmBox"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="admin-upload.js"></script>
+<script src="purify.min.js"></script>
+<script src="admin.js"></script>
+<script src="admin-crop.js"></script>
+<script src="gallery.js"></script>
+<script src="lazy.js"></script>
+
+<script id="__cat_img_v5__">
+(function(){
+  'use strict';
+  if(window.__CAT_IMG_V5__) return;
+  window.__CAT_IMG_V5__ = true;
+
+  console.log('[cat-img-v5] starting...');
+
+  function applyImages(){
+    var thumbs = document.querySelectorAll('#catGrid .cat-card-thumb[data-img]');
+    if(!thumbs.length) return;
+    console.log('[cat-img-v5] applying to', thumbs.length, 'thumbs');
+    for(var i = 0; i < thumbs.length; i++){
+      var el = thumbs[i];
+      var raw = el.getAttribute('data-img');
+      if(!raw || !String(raw).trim()) continue;
+      var full = window.__ASSET__ ? window.__ASSET__(raw) : raw;
+      /* استفاده از DOM API — بدون quote issue */
+      el.style.setProperty('background-image', 'url(' + JSON.stringify(full) + ')', 'important');
+      el.style.setProperty('background-size', 'cover', 'important');
+      el.style.setProperty('background-position', 'center', 'important');
+      el.style.setProperty('background-repeat', 'no-repeat', 'important');
+      el.style.setProperty('background-color', '#ffffff', 'important');
+      console.log('[cat-img-v5] set on', el, '->', full);
+    }
+  }
+
+  /* اجرای دوره‌ای */
+  var interval = setInterval(function(){
+    applyImages();
+  }, 300);
+
+  /* اجرا تا ۳۰ ثانیه بعد از لود */
+  setTimeout(function(){ clearInterval(interval); }, 30000);
+
+  /* اجرای فوری */
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', applyImages);
+  } else {
+    applyImages();
+  }
+
+  /* MutationObserver روی catGrid */
+  var mo = new MutationObserver(function(){
+    setTimeout(applyImages, 50);
+    setTimeout(applyImages, 200);
+  });
+
+  function startObserver(){
+    var grid = document.getElementById('catGrid');
+    if(grid){
+      mo.observe(grid, { childList: true, subtree: true });
+      console.log('[cat-img-v5] observer started on #catGrid');
+      applyImages();
+    } else {
+      setTimeout(startObserver, 500);
+    }
+  }
+  startObserver();
+
+  /* همچنین روی modal picker */
+  var mo2 = new MutationObserver(function(){
+    var picker = document.getElementById('catImgPicker');
+    if(!picker) return;
+    var raw = picker.getAttribute('data-img');
+    if(!raw) return;
+    var full = window.__ASSET__ ? window.__ASSET__(raw) : raw;
+    picker.style.setProperty('background-image', 'url(' + JSON.stringify(full) + ')', 'important');
+    picker.style.setProperty('background-size', 'cover', 'important');
+    picker.style.setProperty('background-position', 'center', 'important');
+  });
+  mo2.observe(document.body, { childList: true, subtree: true });
+
+  console.log('[cat-img-v5] ready');
+})();
+</script>
+
+</body>
+</html>

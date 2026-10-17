@@ -1,0 +1,247 @@
+/* ============================================================
+   admin-crop.css — v5 (unified)
+   ============================================================ */
+
+.cropv5-modal{
+  position: fixed; inset: 0; z-index: 5000;
+  display: grid; place-items: center;
+  padding: 20px;
+}
+.cropv5-modal[hidden]{ display: none; }
+.cropv5-scrim{
+  position: absolute; inset: 0;
+  background: rgba(10,15,25,.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.cropv5-box{
+  position: relative;
+  width: min(880px, 100%);
+  max-height: calc(100vh - 40px);
+  background: var(--adm-surface, #fff);
+  border-radius: 20px;
+  border: 1px solid var(--adm-border, #e6e8ec);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.4);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  animation: cropv5In .25s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes cropv5In{ from{opacity:0; transform: translateY(12px) scale(.97);} to{opacity:1; transform:none;} }
+
+.cropv5-head{
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--adm-border, #e6e8ec);
+}
+.cropv5-head-ic{
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(217,42,63,.1);
+  color: #d92a3f;
+  display: grid; place-items: center;
+  flex: none;
+}
+.cropv5-head-txt{ flex: 1; min-width: 0; }
+.cropv5-head-txt h3{ margin: 0; font-size: 15.5px; font-weight: 800; color: var(--adm-txt, #0f172a); }
+.cropv5-sub{ display: block; font-size: 11.5px; color: var(--adm-muted, #64748b); margin-top: 2px; }
+.cropv5-counter{
+  font-size: 12px; font-weight: 700;
+  color: var(--adm-muted, #64748b);
+  padding: 3px 10px; border-radius: 99px;
+  background: var(--adm-surface-2, #fafbfc);
+  border: 1px solid var(--adm-border, #e6e8ec);
+}
+.cropv5-x{
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--adm-border, #e6e8ec);
+  background: var(--adm-surface, #fff);
+  color: var(--adm-muted, #64748b);
+  display: grid; place-items: center; cursor: pointer;
+  transition: all .15s; font-family: inherit;
+}
+.cropv5-x:hover{ background: #fee; color: #b91c4a; border-color: #fbb; }
+
+.cropv5-toolbar, .cropv5-toolbar2{
+  display: flex; flex-wrap: wrap;
+  gap: 6px; align-items: center;
+  padding: 10px 16px;
+  background: var(--adm-surface-2, #fafbfc);
+  border-bottom: 1px solid var(--adm-border, #e6e8ec);
+}
+.cropv5-toolbar2{
+  border-bottom: 0; border-top: 1px solid var(--adm-border, #e6e8ec);
+  justify-content: center;
+}
+.cropv5-tb-group{
+  display: flex; gap: 2px;
+  background: var(--adm-surface, #fff);
+  border-radius: 10px; padding: 3px;
+  border: 1px solid var(--adm-border, #e6e8ec);
+}
+.cropv5-tb-group button{
+  border: 0; background: transparent;
+  padding: 6px 12px; border-radius: 8px;
+  font: inherit; font-size: 12.5px; font-weight: 600;
+  color: var(--adm-txt-2, #334155);
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s;
+}
+.cropv5-tb-group button:hover:not(:disabled){ background: var(--adm-surface-3, #f1f3f5); }
+.cropv5-tb-group button.is-active{
+  background: #d92a3f; color: #fff;
+  box-shadow: 0 3px 8px -2px rgba(217,42,63,.4);
+}
+.cropv5-tb-group button:disabled{ opacity: .35; cursor: not-allowed; }
+.cropv5-tb-sep{ width: 1px; height: 24px; background: var(--adm-border, #e6e8ec); margin: 0 4px; }
+.cropv5-toolbar2 > button{
+  border: 1px solid var(--adm-border, #e6e8ec);
+  background: var(--adm-surface, #fff);
+  padding: 6px 10px; border-radius: 9px;
+  font: inherit; font-size: 12.5px; font-weight: 600;
+  color: var(--adm-txt-2, #334155);
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; min-height: 34px;
+}
+.cropv5-toolbar2 > button:hover{ background: #fee; color: #d92a3f; border-color: #d92a3f; }
+
+.cropv5-body{
+  padding: 18px;
+  display: flex; justify-content: center;
+  background: #0a0e17;
+}
+.cropv5-stage{
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 1 / 1;
+  max-height: 56vh;
+  border-radius: 12px; overflow: hidden;
+  display: grid; place-items: center;
+  background: #0a0e17;
+  border: 1px solid var(--adm-border, #e6e8ec);
+}
+.cropv5-stage img{ display: block; max-width: 100%; max-height: 100%; }
+
+.cropv5-stage.is-circle::before{
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 10;
+  background: radial-gradient(circle at center,
+    transparent 0,
+    transparent calc(50% - 1.5px),
+    rgba(0,0,0,.6) calc(50% - 1.5px),
+    rgba(0,0,0,.6) 100%);
+}
+.cropv5-stage.is-circle .cropper-view-box{
+  outline: 0 !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(217,42,63,.9), 0 0 20px rgba(217,42,63,.35);
+}
+.cropv5-stage.is-circle .cropper-face{ border-radius: 50%; }
+.cropv5-stage.is-circle .cropper-dashed,
+.cropv5-stage.is-circle .cropper-center{ display: none !important; }
+
+.cropv5-foot{
+  padding: 12px 20px;
+  border-top: 1px solid var(--adm-border, #e6e8ec);
+  display: flex; gap: 10px; justify-content: flex-end;
+  background: var(--adm-surface-2, #fafbfc);
+}
+.cropv5-btn{
+  height: 40px; padding: 0 20px;
+  font: inherit; font-size: 13.5px; font-weight: 700;
+  border-radius: 10px; cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .15s;
+}
+.cropv5-btn.outline{
+  background: var(--adm-surface, #fff);
+  border-color: var(--adm-border, #e6e8ec);
+  color: var(--adm-txt-2, #334155);
+}
+.cropv5-btn.outline:hover{ background: var(--adm-surface-2, #fafbfc); }
+.cropv5-btn.primary{ background: #d92a3f; color: #fff; }
+.cropv5-btn.primary:hover:not(:disabled){ background: #b91c30; }
+.cropv5-btn:disabled{ opacity: .6; cursor: not-allowed; }
+
+#catImgPicker, #catImgPicker.adm-img-picker{
+  width: 180px !important; height: 180px !important;
+  min-width: 180px !important; min-height: 180px !important;
+  margin: 12px auto !important;
+  border-radius: 50% !important;
+  border: 3px dashed var(--adm-border-strong, #d4d8de) !important;
+  background-color: var(--adm-surface-2, #fafbfc);
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  cursor: pointer;
+  display: grid !important; place-items: center;
+  transition: all .25s ease;
+  position: relative; overflow: hidden;
+  aspect-ratio: 1 / 1 !important;
+  box-shadow: 0 0 0 6px rgba(217,42,63,.05);
+  padding: 0 !important;
+}
+#catImgPicker:hover{ border-color: #d92a3f !important; transform: scale(1.03); }
+#catImgPicker.has-image{
+  border-style: solid !important;
+  border-color: #d92a3f !important;
+  box-shadow: 0 0 0 6px rgba(217,42,63,.12);
+}
+#catImgPicker .adm-img-picker-empty{
+  color: var(--adm-muted, #64748b);
+  font-size: 12px !important; font-weight: 600;
+  pointer-events: none; text-align: center;
+  padding: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+}
+#catImgPicker.has-image .adm-img-picker-empty{ display: none !important; }
+
+.cat-card-thumb-circle{
+  width: 80px !important; height: 80px !important;
+  border-radius: 50% !important;
+  background-size: cover; background-position: center;
+  box-shadow: 0 0 0 3px var(--adm-surface, #fff), 0 0 0 5px rgba(217,42,63,.18), 0 4px 12px -4px rgba(0,0,0,.15);
+  transition: transform .25s ease;
+  aspect-ratio: 1 / 1 !important;
+}
+
+@media (max-width: 640px){
+  .cropv5-modal{ padding: 10px; }
+  .cropv5-box{ border-radius: 14px; }
+  .cropv5-body{ padding: 12px; }
+  .cropv5-stage{ max-height: 42vh; }
+  .cropv5-foot{ flex-direction: column-reverse; }
+  .cropv5-btn{ width: 100%; justify-content: center; }
+  .cropv5-head-txt h3{ font-size: 14px; }
+  .cropv5-sub{ display: none; }
+}
+
+
+/* ===== cropv5 layout fix v2 ===== */
+.cropv5-modal{ padding: 16px; }
+.cropv5-box{
+  max-height: calc(100dvh - 32px);
+  max-height: calc(100vh - 32px);
+}
+.cropv5-head,
+.cropv5-toolbar,
+.cropv5-toolbar2,
+.cropv5-foot{ flex: 0 0 auto; }
+.cropv5-body{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.cropv5-stage{
+  width: min(100%, 480px);
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+}
+@media (max-width: 640px){
+  .cropv5-stage{ width: 100%; }
+}

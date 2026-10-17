@@ -1,0 +1,122 @@
+/* ==== Crop Modal ==== */
+.crop-modal{
+  position:fixed;inset:0;z-index:5000;
+  display:grid;place-items:center;padding:20px;
+}
+.crop-modal[hidden]{display:none}
+.crop-modal-scrim{
+  position:absolute;inset:0;
+  background:rgba(10,15,25,.75);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.crop-modal-box{
+  position:relative;
+  width:min(820px,100%);
+  max-height:calc(100vh - 40px);
+  background:var(--adm-surface,#fff);
+  border-radius:20px;
+  border:1px solid var(--adm-border,#e6e8ec);
+  box-shadow:var(--adm-shadow-lg,0 30px 60px -20px rgba(0,0,0,.35));
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  animation:cropIn .25s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes cropIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.crop-modal-head{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--adm-border,#e6e8ec);
+}
+.crop-modal-head h3{margin:0;font-size:16px;font-weight:800;flex:1;color:var(--adm-txt,#0f172a)}
+.crop-counter{
+  font-size:12.5px;font-weight:700;
+  color:var(--adm-muted,#64748b);
+  padding:3px 10px;border-radius:99px;
+  background:var(--adm-surface-2,#fafbfc);
+  border:1px solid var(--adm-border,#e6e8ec);
+}
+.crop-modal-x{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--adm-border,#e6e8ec);
+  background:var(--adm-surface,#fff);
+  color:var(--adm-muted,#64748b);
+  font-size:20px;line-height:1;
+  cursor:pointer;display:grid;place-items:center;
+  transition:all .18s;
+}
+.crop-modal-x:hover{background:#fee;color:#b91c4a;border-color:#fbb}
+.crop-modal-body{
+  padding:20px;flex:1;overflow:auto;
+}
+.crop-stage{
+  max-height:52vh;overflow:hidden;
+  border-radius:12px;background:#0a0e17;
+  display:grid;place-items:center;
+  border:1px solid var(--adm-border,#e6e8ec);
+}
+.crop-stage img{display:block;max-width:100%;max-height:52vh}
+.crop-tools,.crop-presets{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-top:12px;align-items:center;
+}
+.crop-tools button,.crop-presets button{
+  padding:7px 14px;border-radius:9px;
+  border:1px solid var(--adm-border,#e6e8ec);
+  background:var(--adm-surface-2,#fafbfc);
+  font-size:12.5px;font-weight:600;
+  color:var(--adm-txt-2,#334155);
+  cursor:pointer;transition:all .15s;
+}
+.crop-tools button:hover,.crop-presets button:hover{
+  background:color-mix(in srgb,#d92a3f 12%,transparent);
+  color:#d92a3f;
+  border-color:#d92a3f;
+}
+.crop-presets button.is-active{
+  background:#d92a3f;color:#fff;border-color:#d92a3f;
+}
+.crop-presets-label{
+  font-size:12.5px;color:var(--adm-muted,#64748b);
+  font-weight:600;margin-inline-end:4px;
+}
+.crop-modal-foot{
+  padding:14px 20px;
+  border-top:1px solid var(--adm-border,#e6e8ec);
+  display:flex;gap:10px;justify-content:flex-end;
+  background:var(--adm-surface-2,#fafbfc);
+}
+.crop-modal-foot .adm-btn{height:42px;padding:0 20px;font-size:14px;font-weight:700;border-radius:11px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;gap:8px}
+.crop-modal-foot .adm-btn.outline{background:var(--adm-surface,#fff);border-color:var(--adm-border,#e6e8ec);color:var(--adm-txt-2,#334155)}
+.crop-modal-foot .adm-btn.primary{background:#d92a3f;color:#fff}
+.crop-modal-foot .adm-btn.primary:hover:not(:disabled){background:#b91c30}
+.crop-modal-foot .adm-btn:disabled{opacity:.6;cursor:not-allowed}
+
+@media (max-width:640px){
+  .crop-modal{padding:10px}
+  .crop-modal-box{border-radius:16px}
+  .crop-modal-body{padding:14px}
+  .crop-stage{max-height:40vh}
+  .crop-stage img{max-height:40vh}
+  .crop-modal-foot{flex-direction:column-reverse}
+  .crop-modal-foot .adm-btn{width:100%;justify-content:center}
+}
+
+
+/* hint text above crop stage */
+.crop-hint{
+  background: #fef3c7;
+  color: #92400e;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-align: center;
+  border: 1px solid #fcd34d;
+}
+[data-adm-theme="dark"] .crop-hint{
+  background: rgba(217,119,6,.15);
+  color: #fbbf24;
+  border-color: rgba(217,119,6,.3);
+}

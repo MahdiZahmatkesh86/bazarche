@@ -1,0 +1,1 @@
+# bazarche_app

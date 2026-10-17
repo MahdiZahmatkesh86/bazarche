@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ورود | زحمتکش مارکت</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+
+  <link rel="canonical" href="./login.html">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b1e3a'/%3E%3Cpath d='M20 27 L44 27 L41.5 47 L22.5 47 Z' fill='none' stroke='%23E2C88C' stroke-width='2.6'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-left">
+    <div class="auth-left-bg"></div>
+    <div class="auth-left-content">
+      <a href="index.html" class="auth-logo">
+        <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="lgWine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9B2447"/><stop offset="1" stop-color="#4A0F20"/></linearGradient>
+            <linearGradient id="lgGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9E9B8"/><stop offset="0.55" stop-color="#C9A961"/><stop offset="1" stop-color="#8A6E2E"/></linearGradient>
+          </defs>
+          <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#lgWine)"/>
+          <rect x="7" y="7" width="50" height="50" rx="15" fill="none" stroke="url(#lgGold)" stroke-width="1" opacity="0.7"/>
+          <path d="M20 27 L44 27 L41.5 47 L22.5 47 Z" fill="none" stroke="url(#lgGold)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M24.5 27 C24.5 18.8 39.5 18.8 39.5 27" fill="none" stroke="url(#lgGold)" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span class="auth-logo-text"><b>زحمتکش</b><em>مارکت</em></span>
+      </a>
+
+      <div class="auth-hero">
+        <h1>با <span>یک شماره</span>، وارد دنیای خرید هوشمند شوید</h1>
+        <p>عضویت در زحمتکش مارکت فقط با شمارهٔ موبایل شما انجام می‌شود. ساده، سریع و امن.</p>
+      </div>
+
+      <ul class="auth-features">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>ضمانت اصالت همهٔ کالاها</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>ارسال سریع در سراسر کشور</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>بازگشت کالا تا ۷ روز</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>پشتیبانی ۲۴ ساعته</span></li>
+      </ul>
+
+      <div class="auth-foot"><span>© ۱۴۰۴ زحمتکش مارکت</span></div>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-card" data-mode="login">
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab is-active" data-tab="login" role="tab" type="button">ورود</button>
+        <button class="auth-tab" data-tab="signup" role="tab" type="button">ثبت‌نام</button>
+        <div class="auth-tab-slider" aria-hidden="true"></div>
+      </div>
+
+      <div class="auth-alert" id="authAlert" hidden></div>
+
+      <div class="auth-otp-promo">
+        <div class="auth-otp-promo-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+        </div>
+        <div class="auth-otp-promo-txt">
+          <b>ورود با کد یکبار مصرف</b>
+          <span>ورود بدون رمز، فقط با پیامک</span>
+        </div>
+        <button class="auth-otp-promo-btn" id="otpBtn" type="button" disabled title="به زودی">
+          <span class="auth-soon-badge">به زودی</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="auth-divider"><span>یا با رمز عبور</span></div>
+
+      <form class="auth-form" id="loginForm" data-mode="login" novalidate>
+
+        <div class="auth-field" data-signup-only>
+          <label for="auName">نام و نام خانوادگی</label>
+          <div class="auth-input-wrap">
+            <svg class="auth-input-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <input type="text" id="auName" autocomplete="name" placeholder="مثلاً: علی رضایی">
+          </div>
+        </div>
+
+        <div class="auth-field">
+          <label for="auPhone">شمارهٔ موبایل <span class="req">*</span></label>
+          <div class="auth-input-wrap">
+            <svg class="auth-input-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            <input type="tel" id="auPhone" dir="ltr" inputmode="tel" autocomplete="tel" placeholder="09123456789" maxlength="11" data-autofocus>
+          </div>
+          <div class="auth-hint">۱۱ رقم، با ۰۹ شروع می‌شود.</div>
+        </div>
+
+        <div class="auth-field">
+          <label for="auPassword">رمز عبور <span class="req">*</span></label>
+          <div class="auth-input-wrap">
+            <svg class="auth-input-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <input type="password" id="auPassword" dir="ltr" autocomplete="current-password" placeholder="••••••••">
+            <button type="button" class="auth-eye" data-eye="auPassword" aria-label="نمایش رمز">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="auth-pw-strength" id="pwStrength" hidden>
+            <div class="auth-pw-bar"><i></i></div>
+            <span class="auth-pw-lbl">قدرت رمز</span>
+          </div>
+        </div>
+
+        <div class="auth-field" data-signup-only>
+          <label for="auConfirm">تکرار رمز عبور</label>
+          <div class="auth-input-wrap">
+            <svg class="auth-input-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <input type="password" id="auConfirm" dir="ltr" autocomplete="new-password" placeholder="••••••••">
+            <button type="button" class="auth-eye" data-eye="auConfirm" aria-label="نمایش رمز">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-field" data-signup-only>
+          <label class="auth-check">
+            <input type="checkbox" id="auTerms">
+            <span>قوانین و مقررات زحمتکش مارکت را می‌پذیرم</span>
+          </label>
+        </div>
+
+        <div class="auth-row" data-login-only>
+          <label class="auth-check">
+            <input type="checkbox" id="auRemember" checked>
+            <span>مرا به خاطر بسپار</span>
+          </label>
+          <a href="#" class="auth-link" id="forgotLink">فراموشی رمز؟</a>
+        </div>
+
+        <button type="submit" class="auth-submit" id="authSubmit">
+          <span class="auth-submit-label">ورود به حساب</span>
+          <svg class="auth-submit-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="auth-switch" data-login-only>
+          حساب ندارید؟ <a href="#" data-switch-to="signup">ثبت‌نام کنید</a>
+        </div>
+        <div class="auth-switch" data-signup-only>
+          حساب دارید؟ <a href="#" data-switch-to="login">وارد شوید</a>
+        </div>
+      </form>
+
+      <div class="auth-trust">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>اتصال امن SSL</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>حفظ حریم خصوصی</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="login.js"></script>
+  <script src="fa-words.js"></script>
+</body>
+</html>

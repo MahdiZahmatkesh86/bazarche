@@ -1,0 +1,121 @@
+
+/* ============================================================
+   Circular category picker (v2)
+   ============================================================ */
+.cat-circle-picker{
+  width: 180px !important;
+  height: 180px !important;
+  margin: 12px auto !important;
+  border-radius: 50% !important;
+  border: 3px dashed var(--adm-border-strong) !important;
+  background-color: var(--adm-surface-2);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--adm-brand) 5%, transparent),
+    0 0 0 12px color-mix(in srgb, var(--adm-brand) 2%, transparent);
+  aspect-ratio: 1 / 1 !important;
+}
+.cat-circle-picker:hover{
+  border-color: var(--adm-brand) !important;
+  background-color: var(--adm-surface-3);
+  transform: scale(1.03);
+}
+.cat-circle-picker:active{
+  transform: scale(.98);
+}
+.cat-circle-picker-empty{
+  color: var(--adm-muted);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  text-align: center;
+  padding: 12px;
+}
+.cat-circle-picker-empty svg{
+  color: var(--adm-muted-2);
+}
+
+/* ============================================================
+   Circular category card thumb
+   ============================================================ */
+.cat-card-thumb-wrap{
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--adm-surface-2), var(--adm-surface-3));
+  border-bottom: 1px solid var(--adm-border);
+  padding: 16px;
+}
+.cat-card-thumb-circle{
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--adm-surface-2);
+  box-shadow:
+    0 0 0 3px var(--adm-surface),
+    0 0 0 5px color-mix(in srgb, var(--adm-brand) 18%, transparent),
+    0 4px 12px -4px rgba(0,0,0,.15);
+  font-size: 28px;
+  transition: transform .25s ease;
+  aspect-ratio: 1 / 1 !important;
+  border-bottom: none !important;
+}
+.cat-card-admin:hover .cat-card-thumb-circle{
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   Circular crop stage — ماسک دایره‌ای
+   ============================================================ */
+.crop-stage.is-circle{
+  position: relative;
+  overflow: hidden;
+}
+.crop-stage.is-circle::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background:
+    radial-gradient(circle at center,
+      transparent 0,
+      transparent calc(50% - 2px),
+      rgba(0,0,0,.6) calc(50% - 2px),
+      rgba(0,0,0,.6) 100%);
+}
+.crop-stage.is-circle::after{
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 11;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,.6);
+  box-shadow: 0 0 0 2px rgba(217,42,63,.4) inset;
+}
+.crop-stage.is-circle .cropper-view-box{
+  outline: 0 !important;
+  border-radius: 50%;
+}
+.crop-stage.is-circle .cropper-face{
+  border-radius: 50%;
+}
