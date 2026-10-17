@@ -46,3 +46,9 @@ _backup_*
 all_code.txt
 project_code.txt
 *seller-price-block-DUMP.txt
+
+.env
+config.js
+*.env
+**/.env
+**/config.js
