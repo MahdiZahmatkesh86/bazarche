@@ -52,3 +52,83 @@ config.js
 *.env
 **/.env
 **/config.js
+
+# >>> github_upload.py security block >>>
+# Secrets & credentials
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+id_dsa*
+*.ppk
+.npmrc
+.pypirc
+.netrc
+.htpasswd
+secrets.*
+secret.*
+credentials*
+*credentials.json
+service-account*.json
+serviceAccount*.json
+firebase-adminsdk*.json
+google-services.json
+GoogleService-Info.plist
+terraform.tfstate*
+*.tfvars
+.aws/
+.ssh/
+.gnupg/
+.kube/
+
+# Databases, dumps, backups
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
+*.bak
+*.backup
+*.old
+
+# Logs & temp
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# Dependencies & build output
+node_modules/
+vendor/
+bower_components/
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+dist/
+build/
+.next/
+.nuxt/
+.parcel-cache/
+coverage/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+# <<< github_upload.py security block <<<
